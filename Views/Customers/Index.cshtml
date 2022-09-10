@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ParavastuWeek5.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustStreet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustTelephone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustBalance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustAmountPaid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustRep)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustStreet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustTelephone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustBalance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustAmountPaid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustRep.RepId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CustNumber">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CustNumber">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CustNumber">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

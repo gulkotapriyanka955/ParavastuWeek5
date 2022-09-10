@@ -1,0 +1,44 @@
+﻿@model ParavastuWeek5.Models.Representative
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Representative</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RepId" />
+            <div class="form-group">
+                <label asp-for="RepFirstName" class="control-label"></label>
+                <input asp-for="RepFirstName" class="form-control" />
+                <span asp-validation-for="RepFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RepLastName" class="control-label"></label>
+                <input asp-for="RepLastName" class="form-control" />
+                <span asp-validation-for="RepLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RepSalary" class="control-label"></label>
+                <input asp-for="RepSalary" class="form-control" />
+                <span asp-validation-for="RepSalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
